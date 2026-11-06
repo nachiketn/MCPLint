@@ -7,7 +7,7 @@ FROM golang:1.27-bookworm AS github
 ARG GITHUB_MCP_VERSION=latest
 RUN go install github.com/github/github-mcp-server/v2/cmd/github-mcp-server@${GITHUB_MCP_VERSION}
 
-FROM node:22-bookworm
+FROM node:25-bookworm
 # Distro python3 tracks the base image; Dependabot bumps the base image.
 # hadolint ignore=DL3008
 RUN apt-get update \
