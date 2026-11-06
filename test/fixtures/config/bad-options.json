@@ -1,0 +1,1 @@
+["mcpsmell:recommended", { "rules": { "tool-budget": ["warn", { "maximum": 2 }] } }]

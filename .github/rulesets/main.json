@@ -30,6 +30,7 @@
         "do_not_enforce_on_create": false,
         "required_status_checks": [
           { "context": "Format (Prettier)" },
+          { "context": "Linter (build, test, docs)" },
           { "context": "Python (Ruff)" },
           { "context": "JavaScript (syntax and lockfile)" },
           { "context": "Shell, Dockerfile and workflow lint" },

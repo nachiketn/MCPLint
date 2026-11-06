@@ -11,6 +11,6 @@
 ## Checklist
 
 - [ ] Commits are signed off (`git commit -s`)
-- [ ] CI passes locally where possible (`npm run format:check`, `ruff check .`)
+- [ ] CI passes locally where possible (`npm test`, `npm run format:check`, `ruff check .`)
 - [ ] New or changed rules cite their source and include a true-positive example
 - [ ] Docs updated if behavior changed
