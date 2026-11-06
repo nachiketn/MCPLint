@@ -1,0 +1,9 @@
+{
+  "name": "mcpsmell-snapshot",
+  "private": true,
+  "type": "module",
+  "description": "Capture initialize + tools/resources/prompts lists from MCP servers over stdio",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  }
+}
