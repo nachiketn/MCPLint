@@ -1,0 +1,38 @@
+{
+  "id": "ops-server",
+  "repo": "https://example.com/ops-server",
+  "collectedAt": "2026-11-06T00:00:00.000Z",
+  "serverInfo": { "name": "ops-server", "version": "1.2.0" },
+  "capabilities": { "tools": {} },
+  "tools": [
+    {
+      "name": "cluster",
+      "description": "Manage clusters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": ["list", "describe", "scale", "delete"],
+            "description": "Operation to run"
+          },
+          "name": { "type": "string" }
+        },
+        "required": ["action"]
+      },
+      "annotations": { "readOnlyHint": true }
+    },
+    {
+      "name": "run_command",
+      "description": "Execute a shell command on the node.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "command": { "type": "string", "description": "Command line" } }
+      }
+    },
+    { "name": "list_nodes", "description": "List Nodes" },
+    { "name": "get_logs_v2" }
+  ],
+  "resources": [],
+  "prompts": []
+}

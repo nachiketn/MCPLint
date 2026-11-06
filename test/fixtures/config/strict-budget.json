@@ -1,0 +1,1 @@
+[{ "rules": { "tool-budget": ["error", { "max": 2 }] } }]
