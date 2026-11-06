@@ -1,6 +1,6 @@
 # Pilot study: do public MCP servers show the paper's anti-patterns?
 
-A quick feasibility check before building MCPLint: shallow-clone popular MCP
+A quick feasibility check before building mcpsmell (formerly MCPLint): shallow-clone popular MCP
 servers, run cheap regex probes (`probe.py`), then read the hits by hand to
 separate true positives from noise. Source is read as text only; no server
 was installed or run.
