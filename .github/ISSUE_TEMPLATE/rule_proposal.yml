@@ -1,0 +1,41 @@
+name: Rule proposal
+description: Propose a new rule or a change to an existing one.
+labels: [rule]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Rule name
+      placeholder: no-god-tool
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What it detects and why it matters
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Paper section, smell catalog, incident report, or other evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Real examples
+      description: Links to public servers it should flag, and ones it should not.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: How it is checked
+      options:
+        - Static (deterministic, can fail CI)
+        - LLM judge (advisory)
+        - Not sure
+    validations:
+      required: true

@@ -9,3 +9,9 @@ descriptions.
 Status: pre-alpha. See `pilot/` for the feasibility study.
 
 (Formerly MCPLint.)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Security reports go through
+[SECURITY.md](SECURITY.md). This project follows the
+[Code of Conduct](CODE_OF_CONDUCT.md) and is licensed under Apache-2.0.

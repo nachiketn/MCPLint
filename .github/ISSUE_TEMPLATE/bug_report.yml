@@ -1,0 +1,25 @@
+name: Bug report
+description: Something mcpsmell does wrong, including false positives.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the command you ran and its output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: MCP server involved (link, if public)
+  - type: input
+    id: version
+    attributes:
+      label: mcpsmell version or commit

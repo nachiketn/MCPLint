@@ -32,11 +32,13 @@ are written. When the run ends, the container is deleted.
 ## Each run
 
 Mac or Linux:
+
 ```
 ./pilot/snapshot/run.sh
 ```
 
 Windows (PowerShell), from the repo folder:
+
 ```
 docker build -t mcpsmell-snapshot pilot/snapshot
 docker run --rm --cap-drop ALL --security-opt no-new-privileges --memory 4g --cpus 2 -v "${PWD}/pilot/snapshots:/out" mcpsmell-snapshot
@@ -44,10 +46,12 @@ docker run --rm --cap-drop ALL --security-opt no-new-privileges --memory 4g --cp
 
 The first build takes 5 to 10 minutes (it downloads Node, Python and builds
 GitHub's server). The run then prints one line per server, for example:
+
 ```
 github                   43 tools
 azure-all                FAILED  timeout after 240000 ms: connect
 ```
+
 Failures are expected for a few servers that insist on real credentials; the
 error is saved in that server's JSON so we can decide what to do.
 
@@ -56,11 +60,13 @@ To capture only some servers: `./pilot/snapshot/run.sh github azure`.
 ## Sending results back
 
 Commit the snapshots and push the branch:
+
 ```
 git add pilot/snapshots
 git commit -m "Add live tool-list snapshots"
 git push
 ```
+
 I'll analyze them from the branch.
 
 ## Troubleshooting
