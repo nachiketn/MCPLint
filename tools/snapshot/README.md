@@ -2,14 +2,14 @@
 
 This starts each MCP server in `servers.json` inside a throwaway Docker
 container, asks it for its tools, resources and prompts (exactly what an agent
-sees), and saves one JSON file per server to `pilot/snapshots/`. It never calls
+sees), and saves one JSON file per server to `snapshots/` (at the repo root). It never calls
 a tool, and every credential it passes is a dummy.
 
 ## Why Docker
 
 The servers are third-party code. Docker runs them in an isolated box: they
 cannot see your files, SSH keys, browser sessions or cloud credentials. The only
-thing shared with your computer is the `pilot/snapshots/` folder where results
+thing shared with your computer is the `snapshots/` (at the repo root) folder where results
 are written. When the run ends, the container is deleted.
 
 ## One-time setup (about 10 minutes)
@@ -34,14 +34,14 @@ are written. When the run ends, the container is deleted.
 Mac or Linux:
 
 ```
-./pilot/snapshot/run.sh
+./tools/snapshot/run.sh
 ```
 
 Windows (PowerShell), from the repo folder:
 
 ```
-docker build -t mcpsmell-snapshot pilot/snapshot
-docker run --rm --cap-drop ALL --security-opt no-new-privileges --memory 4g --cpus 2 -v "${PWD}/pilot/snapshots:/out" mcpsmell-snapshot
+docker build -t mcpsmell-snapshot tools/snapshot
+docker run --rm --cap-drop ALL --security-opt no-new-privileges --memory 4g --cpus 2 -v "${PWD}/snapshots:/out" mcpsmell-snapshot
 ```
 
 The first build takes 5 to 10 minutes (it downloads Node, Python and builds
@@ -55,24 +55,24 @@ azure-all                FAILED  timeout after 240000 ms: connect
 Failures are expected for a few servers that insist on real credentials; the
 error is saved in that server's JSON so we can decide what to do.
 
-To capture only some servers: `./pilot/snapshot/run.sh github azure`.
+To capture only some servers: `./tools/snapshot/run.sh github azure`.
 
 ## Sending results back
 
-Commit the snapshots and push the branch:
+`snapshots/` is git-ignored, so results never land in the repository by
+accident. Zip the folder and share the zip in the project thread:
 
 ```
-git add pilot/snapshots
-git commit -m "Add live tool-list snapshots"
-git push
+zip -r snapshots.zip snapshots
 ```
 
-I'll analyze them from the branch.
+On Windows: right-click the `snapshots` folder, **Send to → Compressed (zipped)
+folder**.
 
 ## Troubleshooting
 
 - `permission denied` writing to `/out` on Linux: run
-  `sudo chown 1000 pilot/snapshots` once.
+  `sudo chown 1000 snapshots` once.
 - `Cannot connect to the Docker daemon`: Docker Desktop is not running.
 - Apple Silicon Macs work as is; the images are multi-architecture.
 

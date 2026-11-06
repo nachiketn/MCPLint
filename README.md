@@ -7,7 +7,7 @@ anti-patterns described in Rodrigues & Vas,
 resource content, synchronous long-running operations and vague tool
 descriptions.
 
-Status: pre-alpha. See `pilot/` for the feasibility study.
+Status: pre-alpha. `tools/snapshot/` captures MCP servers' tool lists in a sandbox for analysis.
 
 (Formerly MCPLint.)
 

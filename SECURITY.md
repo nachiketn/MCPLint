@@ -11,7 +11,7 @@ Include what you found, how to reproduce it, and the impact you expect.
 ## Scope
 
 - The mcpsmell linter and its rules.
-- The pilot snapshot harness in `pilot/snapshot/`. It runs third-party MCP
+- The snapshot harness in `tools/snapshot/`. It runs third-party MCP
   servers inside a container; a way for a server to escape that container or
   read host files is in scope.
 

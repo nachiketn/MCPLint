@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directories: ["/", "/pilot/snapshot"]
+    directories: ["/", "/tools/snapshot"]
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
@@ -20,7 +20,7 @@ updates:
     labels: [dependencies]
 
   - package-ecosystem: docker
-    directory: "/pilot/snapshot"
+    directory: "/tools/snapshot"
     schedule:
       interval: weekly
     labels: [dependencies]

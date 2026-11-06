@@ -51,9 +51,9 @@ jobs:
         with:
           node-version: 22
       - name: Install snapshot collector from its lockfile
-        working-directory: pilot/snapshot
+        working-directory: tools/snapshot
         run: npm ci --ignore-scripts
-      - run: node --check pilot/snapshot/collect.mjs
+      - run: node --check tools/snapshot/collect.mjs
 
   shell-docker-workflows:
     name: Shell, Dockerfile and workflow lint
@@ -63,8 +63,8 @@ jobs:
         with:
           persist-credentials: false
       - name: ShellCheck
-        run: shellcheck pilot/snapshot/run.sh
+        run: shellcheck tools/snapshot/run.sh
       - name: Hadolint
-        run: docker run --rm -i hadolint/hadolint:v2.15.1 < pilot/snapshot/Dockerfile
+        run: docker run --rm -i hadolint/hadolint:v2.15.1 < tools/snapshot/Dockerfile
       - name: actionlint
         run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.12 -color
