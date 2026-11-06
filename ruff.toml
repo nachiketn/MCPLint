@@ -1,0 +1,7 @@
+target-version = "py311"
+line-length = 120
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "S"]
+# Long regex literals are clearer on one line; the formatter handles the rest.
+ignore = ["E501"]
