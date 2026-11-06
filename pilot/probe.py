@@ -77,7 +77,8 @@ def main(corpus):
         for path in walk(root):
             rel = os.path.relpath(path, root)
             try:
-                lines = open(path, encoding="utf-8", errors="ignore").read().splitlines()
+                with open(path, encoding="utf-8", errors="ignore") as fh:
+                    lines = fh.read().splitlines()
             except OSError:
                 continue
             for i, line in enumerate(lines, 1):
