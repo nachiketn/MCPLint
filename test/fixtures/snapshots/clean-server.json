@@ -1,0 +1,13 @@
+{
+  "tools": [
+    {
+      "name": "get_weather",
+      "description": "Current weather for a city, with temperature in Celsius.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "city": { "type": "string", "description": "City name" } }
+      },
+      "annotations": { "readOnlyHint": true }
+    }
+  ]
+}
